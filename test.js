@@ -27,6 +27,7 @@ describe('is-kindof:', function() {
     assert.strictEqual(isKindof(new WeakSet(), 'weakset'), true);
     assert.strictEqual(isKindof(new Map(), 'map'), true);
     assert.strictEqual(isKindof(new WeakMap(), 'weakmap'), true);
+    assert.strictEqual(isKindof(new Error(), 'error'), true);
     assert.strictEqual(isKindof(Symbol('foo'), 'symbol'), true);
     done();
   });
@@ -46,6 +47,7 @@ describe('is-kindof:', function() {
     assert.strictEqual(isKindof(new WeakSet(), 'weakset', true), true);
     assert.strictEqual(isKindof(new Map(), 'map', true), true);
     assert.strictEqual(isKindof(new WeakMap(), 'weakmap', true), true);
+    assert.strictEqual(isKindof(new Error(), 'error', true), true);
     assert.strictEqual(isKindof(Symbol('foo'), 'symbol', true), true);
     done();
   });
@@ -121,6 +123,11 @@ describe('is-kindof:', function() {
   it('should have `weakmap` and `isWeakmap` methods', function(done) {
     assert.strictEqual(isKindof.weakmap(new WeakMap()), true);
     assert.strictEqual(isKindof.isWeakmap(new WeakMap()), true);
+    done();
+  });
+  it('should have `error` and `isError` methods', function(done) {
+    assert.strictEqual(isKindof.error(new Error()), true);
+    assert.strictEqual(isKindof.isError(new Error()), true);
     done();
   });
   it('should have `symbol` and `isSymbol` methods', function(done) {
