@@ -32,7 +32,7 @@ module.exports = isKindof;
 function isKindof(a, b, loose) {
   a = kindOf(a);
   return loose ? a == b : a === b;
-};
+}
 
 /**
  * Check type of given `value` to be **arguments**
