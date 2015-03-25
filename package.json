@@ -17,7 +17,18 @@
     "type": "git",
     "url": "git://github.com/tunnckoCore/is-kindof.git"
   },
-  "keywords": [],
+  "keywords": [
+    "frp",
+    "functional",
+    "is",
+    "is-typeof",
+    "kind",
+    "kindof",
+    "programming",
+    "type",
+    "typeof",
+    "utils"
+  ],
   "license": {
     "type": "MIT",
     "url": "https://github.com/tunnckoCore/is-kindof/blob/master/license.md"
