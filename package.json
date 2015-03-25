@@ -1,6 +1,6 @@
 {
   "name": "is-kindof",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Thin wrapper around `kind-of` and in bonus functional api.",
   "scripts": {
     "lint": "jshint index.js && jscs index.js --reporter inline",
