@@ -1,43 +1,23 @@
 {
   "name": "is-kindof",
-  "version": "1.0.0",
-  "description": "Thin wrapper around `kind-of` and in bonus functional api.",
+  "version": "0.0.0",
+  "description": "Check type of given javascript value. Support promises, generators, streams, and native types. Thin wrapper around `kind-of` module.",
+  "repository": "tunnckoCore/is-kindof",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "lint": "jshint index.js && jscs index.js --reporter inline",
-    "test": "mocha",
-    "test-cov": "istanbul cover _mocha",
-    "test-travis": "istanbul cover _mocha --report lcovonly"
-  },
-  "author": {
-    "name": "Charlike Mike Reagent",
-    "email": "mameto_100@mail.bg",
-    "url": "https://github.com/tunnckoCore"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/tunnckoCore/is-kindof.git"
-  },
-  "keywords": [
-    "frp",
-    "functional",
-    "is",
-    "is-typeof",
-    "kind",
-    "kindof",
-    "programming",
-    "type",
-    "typeof",
-    "utils"
-  ],
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/tunnckoCore/is-kindof/blob/master/license.md"
+    "test": "standard && node test.js"
   },
   "dependencies": {
-    "kind-of": "^1.1.0"
+    "is-es6-generators": "~1.0.1",
+    "is-hybrid": "~1.0.0",
+    "is-promise": "~2.0.0",
+    "is-stream": "~1.0.1",
+    "kind-of": "~2.0.0"
   },
   "devDependencies": {
-    "istanbul-harmony": "~0.3.1",
-    "mocha": "~2.2.1"
-  }
+    "assertit": "^0.1.0"
+  },
+  "keywords": []
 }
