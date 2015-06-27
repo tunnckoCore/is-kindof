@@ -125,6 +125,7 @@ function isGeneratorFnType (type) {
     type === 'generatorfunction' ||
     type === 'generator function' ||
     type === 'generator fn' ||
+    type === 'generatorFn' ||
     type === 'generatorfn' ||
     type === 'gen function' ||
     type === 'gen fn' ||
