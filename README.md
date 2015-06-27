@@ -12,7 +12,79 @@ npm test
 ```
 
 
-## Supported methods/types
+## Usage
+> For more use-cases see the [tests](./test.js)
+
+```js
+var is = require('is-kindof')
+
+is(123, 'number') //=> true
+is(123, ['number', 'string']) //=> true
+is('foo', 'number') //=> false
+is('foo', ['number', 'array']) //=> false
+
+is(123).number() //=> true
+is(123).isNumber() //=> true
+
+is().number() //=> false
+is().isNumber() //=> false
+
+is().number(123) //=> true
+is().isNumber(123) //=> true
+
+is.number(123) //=> true
+is.isNumber(123) //=> true
+```
+
+Support promises, hybrids, generators, streams and other es6 features  
+like Set, WeakMap, Symbol and etc.
+
+**generators**
+
+```js
+var gen = (function * () {yield 42})()
+var genfn = function * () {yield 42}
+
+is.generator(gen) //=> true
+is().generator(gen) //=> true
+is(gen).generator() //=> true
+
+is.generatorFunction(genfn) //=> true
+is().generatorFunction(genfn) //=> true
+is(genfn).generatorFunction() //=> true
+
+is.generatorFn(genfn) //=> true
+is().generatorFn(genfn) //=> true
+is(genfn).generatorFn() //=> true
+
+is(gen, 'generatorFunction') //=> false
+is(gen, 'generator function') //=> false
+is(gen, 'generator Fn') //=> false
+is(gen, 'generatorFn') //=> false
+
+is(genfn, 'generatorFunction') //=> true
+is(genfn, 'generator function') //=> true
+is(genfn, 'generator Fn') //=> true
+is(genfn, 'generatorFn') //=> true
+
+is(genfn, ['generator', 'string']) //=> false
+is(gen, ['generator', 'string']) //=> true
+```
+
+We have few aliases for the `generator function` type
+- generatorFunction
+- generator function
+- generatorFn
+- generator Fn
+- generator fn
+- gen fn
+- genfn
+
+All of them you can use in `is(val, type)` way.  
+Otherwise only `generatorFn` and `generatorFunction` are exposed as methods.
+
+
+**supported methods/types**
 - `null`
 - `set`
 - `map`
@@ -35,57 +107,7 @@ npm test
 - `stream`
 - `error`
 
-> All of them also exist prefixed with `is`, like `isNumber`, `isFunction` and etc.  
-Also `generator function` check exists in the `.generator` and `.isGenerator`,  
-like `.generator.fn()` and `.isGenerator.fn()`
-
-
-## Usage
-> For more use-cases see the [tests](./test.js)
-
-```js
-var isKindof = require('is-kindof')
-
-var gen = (function * () {yield 42})()
-var genfn = function * () {yield 42}
-
-is.isGenerator(gen)                // true
-is.generator(gen)                  // true
-is.generator(genfn)                // false
-is.isGeneratorFunction(gen)        // false
-is.generatorFunction(gen)          // false
-is.generatorFunction(genfn)        // true
-is.isGenerator.fn(gen)             // false
-is.generator.fn(gen)               // false
-is.generator.fn(genfn)             // true
-is.number(123)                     // true
-is.isRegexp(123)                   // false
-is.isNumber(123)                   // true
-is.undefined(123)                  // false
-is.undefined(undefined)            // true
-is.undefined(null)                 // false
-is.undefined()                     // false
-is.isUndefined(undefined)          // true
-is.isNull(null)                    // true
-is.null(null)                      // true
-is.null()                          // false
-is('foo').string()                 // true
-is('foo').number()                 // false
-is(123).string()                   // false
-is(123).isString()                 // false
-is(123).number()                   // true
-is(123).isNumber()                 // true
-is([1, 2, 3]).array()              // true
-is([1, 2, 3]).isArray()            // true
-is().undefined()                   // true
-is().isUndefined()                 // true
-is(undefined).undefined()          // true
-is(undefined).undefined(undefined) // true
-is().undefined(123)                // false
-is().undefined(undefined)          // true
-is(null).undefined()               // false
-is().undefined(null)               // false
-```
+> All of them also exist prefixed with `is`, like `isNumber`, `isFunction` and etc.
 
 
 ## Contributing
