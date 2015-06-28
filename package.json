@@ -20,6 +20,7 @@
     "assertit": "^0.1.0",
     "got": "^3.2.0",
     "got-promise": "^4.1.0",
+    "plugin-error": "^0.1.2",
     "then-got": "^1.0.7"
   },
   "keywords": [
