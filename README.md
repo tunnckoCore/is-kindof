@@ -71,7 +71,7 @@ is(genfn, ['generator', 'string']) //=> false
 is(gen, ['generator', 'string']) //=> true
 ```
 
-We have few aliases for the `generator function` type
+We have [few aliases](./index.js#L123-L133) for the `generator function` type
 - generatorFunction
 - generator function
 - generatorFn
