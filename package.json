@@ -22,5 +22,16 @@
     "got-promise": "^4.1.0",
     "then-got": "^1.0.7"
   },
-  "keywords": []
+  "keywords": [
+    "check",
+    "functional",
+    "is",
+    "kind",
+    "kindof",
+    "programming",
+    "type",
+    "typeof",
+    "utils",
+    "validate"
+  ]
 }
