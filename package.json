@@ -10,17 +10,17 @@
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "got": "^3.2.0",
-    "got-promise": "^4.1.0",
-    "is-es6-generators": "~1.0.1",
+    "is-es6-generators": "~1.0.2",
     "is-hybrid": "~1.0.0",
     "is-promise": "~2.0.0",
     "is-stream": "~1.0.1",
-    "kind-of": "~2.0.0",
-    "then-got": "^1.0.7"
+    "kind-of": "~2.0.0"
   },
   "devDependencies": {
-    "assertit": "^0.1.0"
+    "assertit": "^0.1.0",
+    "got": "^3.2.0",
+    "got-promise": "^4.1.0",
+    "then-got": "^1.0.7"
   },
   "keywords": []
 }
