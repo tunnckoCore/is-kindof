@@ -12,34 +12,69 @@ npm test
 ```
 
 
+## Features
+- multiple check types - e.g. check value is `string` or `number`
+- multiple APIs - `is(val, type)`, `is(val).type()`, `is.type(val)` or `is().type(val)`
+- have support for es6 features like WeakMap, Symbol, Promises, Generators and etc
+- all methods also exists prefixed with `is` like `isNumber`, `isRegexp`
+- performance, because is on top of `kind-of` which is the fastest
+- [see below supported methods](https://github.com/tunnckoCore/is-kindof#supported-methods-and-types) and types that you can use to check values
+
+
 ## Usage
 > For more use-cases see the [tests](./test.js)
 
 ```js
-var is = require('is-kindof')
+var kindof = require('is-kindof')
 
-is(123, 'number') //=> true
-is(123, ['number', 'string']) //=> true
-is('foo', 'number') //=> false
-is('foo', ['number', 'array']) //=> false
+kindof(123456789, 'number')   //=> true
+kindof([1, 2, 3], 'array')    //=> true 
+kindof(/^[a-f]$/, 'regexp')   //=> true 
+kindof({a: 'bc'}, 'object')   //=> true 
+kindof('foo bar', 'array')    //=> false 
+kindof('foo bar', 'string')   //=> true
 
-is(123).number() //=> true
-is(123).isNumber() //=> true
-
-is().number() //=> false
-is().isNumber() //=> false
-
-is().number(123) //=> true
-is().isNumber(123) //=> true
-
-is.number(123) //=> true
-is.isNumber(123) //=> true
+kindof(123, ['number', 'string'])   //=> true
+kindof('foo', ['number', 'array'])  //=> false
 ```
 
-Support promises, hybrids, generators, streams and other es6 features  
-like Set, WeakMap, Symbol and etc.
+**Example for numbers**
+> Here below we use all available APIs to check that given `value` is number.
 
-**generators**
+```js
+var is = require('is-kindof')
+
+is.number()         //=> false
+is.isNumber()       //=> false
+is.number(123)      //=> true
+is.isNumber(123)    //=> true
+is().number()       //=> false
+is().isNumber()     //=> false
+is().number(123)    //=> true
+is().isNumber(123)  //=> true
+is(123).number()    //=> true
+is(123).isNumber()  //=> true
+is(123, 'number')   //=> true
+```
+
+> **Note:** We also have support for promises, hybrids, generators, streams and other es6  
+features like Set, WeakMap, Symbol and etc.
+
+**Generators**
+> We have [few aliases](./index.js#L123-L133) for the `generator function` type
+
+- generatorFunction
+- generator function
+- generatorFn
+- generator Fn
+- generator fn
+- gen fn
+- genfn
+
+> All of them you can use in `is(val, type)` way.  
+Otherwise only `generatorFn` and `generatorFunction` are exposed as methods.
+
+**Example**
 
 ```js
 var gen = (function * () {yield 42})()
@@ -71,20 +106,10 @@ is(genfn, ['generator', 'string']) //=> false
 is(gen, ['generator', 'string']) //=> true
 ```
 
-We have [few aliases](./index.js#L123-L133) for the `generator function` type
-- generatorFunction
-- generator function
-- generatorFn
-- generator Fn
-- generator fn
-- gen fn
-- genfn
 
-All of them you can use in `is(val, type)` way.  
-Otherwise only `generatorFn` and `generatorFunction` are exposed as methods.
+## Supported methods and types
+> All of them also exist prefixed with `is`, like `isNumber`, `isFunction` and etc.
 
-
-**supported methods/types**
 - `null`
 - `set`
 - `map`
@@ -107,7 +132,27 @@ Otherwise only `generatorFn` and `generatorFunction` are exposed as methods.
 - `stream`
 - `error`
 
-> All of them also exist prefixed with `is`, like `isNumber`, `isFunction` and etc.
+
+## Checking for errors
+> You may think it is interesting case, yea. We just cast given value to string and then  
+check that this string have `Error` in it. It is the easiest and guaranteed way to do that,
+because error extending and inheriting is little bit tricky in Javascript world.
+
+**Example**
+
+```js
+var is = require('is-kindof')
+var PluginErr = require('plugin-error')
+
+is.error(new Error('foo bar baz!')) //=> true
+is.error(new TypeError('type err')) //=> true
+
+is.error(new PluginErr('foo', 'msg'))
+//=> true, because it's internal name is `Error`
+
+is.error(new PluginErr('foo', 'msg', {name: 'MyErr'}))
+//=> false, because we change it's name to `MyErr`
+```
 
 
 ## Contributing
