@@ -1,6 +1,6 @@
 
 
-## 2.0.0 / 2015-03-26
+## 2.0.0 / 2015-06-29
 - Release v2.0.0 / npm@v2.0.0
 - add new tests that use `plugin-error`
 - add related
