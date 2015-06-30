@@ -7,17 +7,11 @@
 
 'use strict'
 
-var isGens = require('is-es6-generators')
-var isPromise = require('is-promise')
-var isHybrid = require('is-hybrid')
-var isStream = require('is-stream')
-var kindOf = require('kind-of')
-
-module.exports = IsKindof
+var kindOf = require('kind-of-extra')
 
 function IsKindof (val, types) {
   if (arguments.length === 2) {
-    types = kindOf(types) === 'array' ? types : [types]
+    types = arrayify(types)
 
     var ret = false
     var len = types.length
@@ -25,7 +19,7 @@ function IsKindof (val, types) {
 
     while (i < len) {
       var type = types[i++]
-      if (check(val, type)) {
+      if (kindCheck(val, type)) {
         ret = true
         break
       }
@@ -42,27 +36,28 @@ function IsKindof (val, types) {
   return false
 }
 
-function check (val, type) {
-  if (type === 'promise') {
-    return isPromise(val)
-  }
-  if (type === 'hybrid') {
-    return isHybrid(val)
-  }
-  if (type === 'stream') {
-    return isStream(val)
-  }
-  if (type === 'error') {
-    return isError(val)
-  }
-  if (type === 'generator') {
-    return isGens.isGenerator(val)
-  }
+function arrayify (val) {
+  return Array.isArray(val) ? val : [val]
+}
+
+function kindCheck (val, type) {
   if (isGeneratorFnType(type)) {
-    return isGens.isGeneratorFunction(val)
+    return kindOf(val) === 'generatorfunction'
   }
 
   return kindOf(val) === type
+}
+
+function isGeneratorFnType (type) {
+  return type === 'generatorFunction' ||
+    type === 'generatorfunction' ||
+    type === 'generator function' ||
+    type === 'generator fn' ||
+    type === 'generatorFn' ||
+    type === 'generatorfn' ||
+    type === 'gen function' ||
+    type === 'gen fn' ||
+    type === 'genfn'
 }
 
 [
@@ -92,12 +87,12 @@ function check (val, type) {
 
   function isType (val) {
     if (arguments.length === 1) {
-      return check(val, type)
+      return kindCheck(val, type)
     }
     if (this.marker === undefined) {
       return false
     }
-    return check(this.value, type)
+    return kindCheck(this.value, type)
   }
 
   IsKindof[type] = isType
@@ -110,25 +105,4 @@ IsKindof.generator.fn = IsKindof.generatorFunction
 IsKindof.prototype.generatorFn = IsKindof.prototype.generatorFunction
 IsKindof.prototype.generator.fn = IsKindof.prototype.generatorFunction
 
-function isError (val) {
-  return isObjectLike(val) &&
-    typeof val.message === 'string' &&
-    String(val).indexOf('Error') !== -1
-}
-
-function isObjectLike (val) {
-  return !!val && typeof val === 'object'
-}
-
-function isGeneratorFnType (type) {
-  return type === 'generatorFunction' ||
-    type === 'generatorfunction' ||
-    type === 'generator function' ||
-    type === 'generator fn' ||
-    type === 'generatorFn' ||
-    type === 'generatorfn' ||
-    type === 'gen function' ||
-    type === 'gen fn' ||
-    type === 'genfn'
-}
-
+module.exports = IsKindof
