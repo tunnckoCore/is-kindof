@@ -9,7 +9,7 @@
 
 var kindOf = require('kind-of-extra')
 
-function IsKindof (val, types) {
+function Is (val, types) {
   if (arguments.length === 2) {
     types = arrayify(types)
 
@@ -27,8 +27,8 @@ function IsKindof (val, types) {
     return ret
   }
   if (arguments.length <= 1) {
-    if (!(this instanceof IsKindof)) {
-      return new IsKindof(val)
+    if (!(this instanceof Is)) {
+      return new Is(val)
     }
     this.marker = arguments
     this.value = val
@@ -41,23 +41,11 @@ function arrayify (val) {
 }
 
 function kindCheck (val, type) {
-  if (isGeneratorFnType(type)) {
+  if (type === 'generatorFunction' || type === 'generatorfunction') {
     return kindOf(val) === 'generatorfunction'
   }
 
   return kindOf(val) === type
-}
-
-function isGeneratorFnType (type) {
-  return type === 'generatorFunction' ||
-    type === 'generatorfunction' ||
-    type === 'generator function' ||
-    type === 'generator fn' ||
-    type === 'generatorFn' ||
-    type === 'generatorfn' ||
-    type === 'gen function' ||
-    type === 'gen fn' ||
-    type === 'genfn'
 }
 
 [
@@ -74,7 +62,7 @@ function isGeneratorFnType (type) {
   'function',
   'undefined',
   'generator',
-  'generatorFunction',
+  'generatorfunction',
   'weakmap',
   'weakset',
   'symbol',
@@ -95,14 +83,13 @@ function isGeneratorFnType (type) {
     return kindCheck(this.value, type)
   }
 
-  IsKindof[type] = isType
-  IsKindof[typeName] = isType
-  IsKindof.prototype[type] = isType
-  IsKindof.prototype[typeName] = isType
+  Is[type] = isType
+  Is[typeName] = isType
+  Is.prototype[type] = isType
+  Is.prototype[typeName] = isType
 })
-IsKindof.generatorFn = IsKindof.generatorFunction
-IsKindof.generator.fn = IsKindof.generatorFunction
-IsKindof.prototype.generatorFn = IsKindof.prototype.generatorFunction
-IsKindof.prototype.generator.fn = IsKindof.prototype.generatorFunction
 
-module.exports = IsKindof
+Is.generatorFunction = Is.generatorfunction
+Is.prototype.generatorFunction = Is.prototype.generatorfunction
+
+module.exports = Is

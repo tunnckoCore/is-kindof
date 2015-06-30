@@ -61,18 +61,8 @@ is(123, 'number')   //=> true
 features like Set, WeakMap, Symbol and etc.
 
 **Generators**
-> We have [few aliases](./index.js#L123-L133) for the `generator function` type
-
-- generatorFunction
-- generator function
-- generatorFn
-- generator Fn
-- generator fn
-- gen fn
-- genfn
-
-> All of them you can use in `is(val, type)` way.  
-Otherwise only `generatorFn` and `generatorFunction` are exposed as methods.
+> As of `v2.1.0` we just have one alias for `generatorfunction` type: `generatorFunction`.  
+Note that they both are exposed as methods.
 
 **Example**
 
@@ -88,22 +78,13 @@ is.generatorFunction(genfn) //=> true
 is().generatorFunction(genfn) //=> true
 is(genfn).generatorFunction() //=> true
 
-is.generatorFn(genfn) //=> true
-is().generatorFn(genfn) //=> true
-is(genfn).generatorFn() //=> true
-
+is(gen, 'generatorfunction') //=> false
 is(gen, 'generatorFunction') //=> false
-is(gen, 'generator function') //=> false
-is(gen, 'generator Fn') //=> false
-is(gen, 'generatorFn') //=> false
-
-is(genfn, 'generatorFunction') //=> true
-is(genfn, 'generator function') //=> true
-is(genfn, 'generator Fn') //=> true
-is(genfn, 'generatorFn') //=> true
-
-is(genfn, ['generator', 'string']) //=> false
 is(gen, ['generator', 'string']) //=> true
+
+is(genfn, 'generatorfunction') //=> true
+is(genfn, 'generatorFunction') //=> true
+is(genfn, ['generator', 'string']) //=> false
 ```
 
 
@@ -123,7 +104,7 @@ is(gen, ['generator', 'string']) //=> true
 - `function`
 - `undefined`
 - `generator`
-- `generatorFunction`
+- `generatorfunction`
 - `weakmap`
 - `weakset`
 - `symbol`
