@@ -1,5 +1,13 @@
 
 
+## 2.1.0 / 2015-06-30
+- Release v2.1.0 / npm@v2.1.0
+- update related
+- remove most generator function aliases (they are ugly)
+- move tests to `test/`, thanks @codeclimate for complexity report
+- fix date in changelog
+- pull out some logic to `kind-of-extra` and switch to use it
+
 ## 2.0.0 / 2015-06-29
 - Release v2.0.0 / npm@v2.0.0
 - add new tests that use `plugin-error`

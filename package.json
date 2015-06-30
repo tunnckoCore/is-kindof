@@ -1,6 +1,6 @@
 {
   "name": "is-kindof",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Check type of given javascript value. Support promises, generators, streams, and native types. Thin wrapper around `kind-of` module.",
   "repository": "tunnckoCore/is-kindof",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
