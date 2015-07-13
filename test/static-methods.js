@@ -12,6 +12,7 @@
 var test = require('assertit')
 var is = require('../index')
 
+test.equal(typeof is.buffer, 'function')
 test.equal(typeof is.regexp, 'function')
 test.equal(typeof is.object, 'function')
 test.equal(typeof is.array, 'function')

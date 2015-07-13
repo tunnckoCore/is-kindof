@@ -20,6 +20,7 @@ var PluginError = require('plugin-error')
 var generator = (function * () {yield 42})()
 var generatorfn = function * () {yield 42}
 
+test.equal(is.buffer(new Buffer('str')), true)
 test.equal(is.regexp(/regex/), true)
 test.equal(is.object({a: 'bcd'}), true)
 test.equal(is.array([1, 2, 3]), true)
