@@ -16,9 +16,9 @@ npm test
 - multiple check types - e.g. check value is `string` or `number`
 - multiple APIs - `is(val, type)`, `is(val).type()`, `is.type(val)` or `is().type(val)`
 - have support for es6 features like WeakMap, Symbol, Promises, Generators and etc
-- all methods also exists prefixed with `is` like `isNumber`, `isRegexp`
-- performance, because is on top of `kind-of` which is the fastest
-- [see below supported methods](https://github.com/tunnckoCore/is-kindof#supported-methods-and-types) and types that you can use to check values
+- [all methods](https://github.com/tunnckoCore/is-kindof#supported-types) also exists prefixed with `is` like `isNumber`, `isRegexp`
+- performance, because is on top of [kind-of](https://github.com/jonschlinkert/kind-of) which is the fastest
+- see [kind-of-types](https://github.com/tunnckoCore/kind-of-types) for the supported types that you can use to check values
 
 
 ## Usage
@@ -90,30 +90,8 @@ is(genfn, ['generator', 'string']) //=> false
 ```
 
 
-## Supported methods and types
-> All of them also exist prefixed with `is`, like `isNumber`, `isFunction` and etc.
-
-- `null`
-- `set`
-- `map`
-- `date`
-- `array`
-- `string`
-- `object`
-- `number`
-- `regexp`
-- `boolean`
-- `function`
-- `undefined`
-- `generator`
-- `generatorfunction`
-- `weakmap`
-- `weakset`
-- `symbol`
-- `promise`
-- `hybrid`
-- `stream`
-- `error`
+## Supported types
+> For list of all supported types that are used and exposed here see [kind-of-types](https://github.com/tunnckoCore/kind-of-types). All of them also exists as methods prefixed with `is` 
 
 
 ## Checking for errors
