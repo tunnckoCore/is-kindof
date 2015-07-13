@@ -7,6 +7,7 @@
 
 'use strict'
 
+var types = require('kind-of-types')
 var kindOf = require('kind-of-extra')
 
 function Is (val, types) {
@@ -48,29 +49,7 @@ function kindCheck (val, type) {
   return kindOf(val) === type
 }
 
-[
-  'null',
-  'set',
-  'map',
-  'date',
-  'array',
-  'string',
-  'object',
-  'number',
-  'regexp',
-  'boolean',
-  'function',
-  'undefined',
-  'generator',
-  'generatorfunction',
-  'weakmap',
-  'weakset',
-  'symbol',
-  'promise',
-  'hybrid',
-  'stream',
-  'error'
-].forEach(function (type) {
+types.forEach(function (type) {
   var typeName = 'is' + type[0].toUpperCase() + type.slice(1)
 
   function isType (val) {

@@ -10,7 +10,8 @@
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "kind-of-extra": "~1.0.0"
+    "kind-of-extra": "~1.0.0",
+    "kind-of-types": "~1.0.0"
   },
   "devDependencies": {
     "assertit": "^0.1.0",
