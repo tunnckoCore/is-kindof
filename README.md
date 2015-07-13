@@ -1,4 +1,4 @@
-# is-kindof [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
+# [is-kindof][author-www-url] [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
 
 > Check type of given javascript value. Support promises, generators, streams, and native types. Thin wrapper around `kind-of` module.
 
@@ -67,6 +67,8 @@ Note that they both are exposed as methods.
 **Example**
 
 ```js
+var is = require('is-kindof')
+
 var gen = (function * () {yield 42})()
 var genfn = function * () {yield 42}
 
@@ -115,30 +117,46 @@ is(genfn, ['generator', 'string']) //=> false
 
 
 ## Checking for errors
-> You may think it is interesting case, yea. We just cast given value to string and then  
-check that this string have `Error` in it. It is the easiest and guaranteed way to do that,
-because error extending and inheriting is little bit tricky in Javascript world.
+> You may think it is interesting case, because error extending and inheriting is little bit tricky in Javascript world, but we handles that with [is-typeof-error](https://github.com/tunnckocore/is-typeof-error), check it.
 
 **Example**
 
 ```js
 var is = require('is-kindof')
+
+var util = require('util')
 var PluginErr = require('plugin-error')
+var KindError = require('kind-error')
 
 is.error(new Error('foo bar baz!')) //=> true
 is.error(new TypeError('type err')) //=> true
+is.error(new KindError('foo bar!')) //=> true
 
 is.error(new PluginErr('foo', 'msg'))
 //=> true, because it's internal name is `Error`
 
 is.error(new PluginErr('foo', 'msg', {name: 'MyErr'}))
 //=> false, because we change it's name to `MyErr`
+
+function MyAppErr () {
+  KindError.apply(this, arguments)
+  this.name = 'MyCustom'
+}
+util.inherits(MyAppErr, Error)
+
+var err = new MyAppErr('foo')
+is.error(err) //=> true
+
+//=> err
+// err.name = 'MyCustom'
+// err.message = 'foo'
 ```
 
 
 ## Related
 - [assertit](https://github.com/tunnckoCore/assertit): Thin sugar layer on top of `testit` framework, `is-kindof` and `assert`.
 - [assert-kindof](https://github.com/tunnckoCore/assert-kindof): Check native type of the given value and throw TypeError if not okey. Expressive, elegant, behavior-driven API, good descriptive default error messages, simple and clean syntax.
+- [abbrev-kindof](https://github.com/tunnckoCore/abbrev-kindof#readme): `kind-of` with single letter abbreviations to javascript native types, like `kindof(val, 'soa')` will return true if `val` is string, object or array. useful for DB/Schema/Object validations
 - [is-typeof-error](https://github.com/tunnckocore/is-typeof-error): Check that given value is any type of error and instanceof Error
 - [is-missing](https://github.com/tunnckocore/is-missing): Check that given `name` or `user/repo` exists in npm registry or in github as user repository.
 - [is-installed](https://github.com/tunnckoCore/is-installed): Checks that given package is installed on the system - globally or locally.
@@ -146,6 +164,7 @@ is.error(new PluginErr('foo', 'msg', {name: 'MyErr'}))
 - [is-ansi](https://github.com/tunnckocore/is-ansi): Check that given string contain ANSI color codes, without CLI
 - [is-es6-generators](https://github.com/tunnckocore/is-es6-generators): Check whether a value is a `Generator` or `GeneratorFunction`. The `co` way, more strict checking. Always return boolean true or false, never null or undefined.
 - [kind-of-extra](https://github.com/tunnckocore/kind-of-extra): Extends `kind-of` type check utility with support for promises, generators, streams and errors. Like `kindof(Promise.resolve(1)) === 'promise'` and etc.
+- [kind-of-types](https://github.com/tunnckocore/kind-of-types#readme): List of all javascript types. Used and useful for checking, validation, sanitizing and testing. Like isStream, isPromise, isWeakset and etc.
 - [kind-error](https://github.com/tunnckocore/kind-error): Correct inheriting from `Error`. Supports constructing from an object of properties - focused on assertion.
 
 
