@@ -1,5 +1,13 @@
 
 
+## 2.1.1 / 2015-07-14
+- Release v2.1.1 / npm@v2.1.1
+- update .editorconfig
+- add tests for buffer type
+- add ref to `kind-of` and `kind-of-types` libs
+- switch to use `kind-of-types`
+- update readme
+
 ## 2.1.0 / 2015-06-30
 - Release v2.1.0 / npm@v2.1.0
 - update related
