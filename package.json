@@ -15,10 +15,10 @@
   },
   "devDependencies": {
     "assertit": "^0.1.0",
-    "got": "^3.3.0",
-    "got-promise": "^4.1.0",
+    "got": "^6.1.1",
+    "got-promise": "^5.0.0",
     "plugin-error": "^0.1.2",
-    "then-got": "^1.0.7"
+    "then-got": "^2.0.0"
   },
   "keywords": [
     "check",
