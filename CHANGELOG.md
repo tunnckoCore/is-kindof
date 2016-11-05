@@ -1,3 +1,32 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/tunnckocore/is-kindof/compare/v2.1.1...v3.0.0) (2016-11-05)
+
+
+### Chores
+
+* drop support for Node.js 0.10 ([723ce06](https://github.com/tunnckocore/is-kindof/commit/723ce06))
+
+
+### Code Refactoring
+
+* **simplify:** update boilerplate and simplify ([ef6a9d6](https://github.com/tunnckocore/is-kindof/commit/ef6a9d6))
+
+
+### BREAKING CHANGES
+
+* simplify: exports and module.exports only methods for types - is.string(val),
+
+is.function(val), is.object(val) and etc. because before that it was too complex and needless. Now
+
+it is clean and explicit.
+* This module no longer supports Node.js 0.10
+
+
+
 
 
 ## 2.1.1 - 2015-07-14
