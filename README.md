@@ -15,10 +15,30 @@ $ npm i is-kindof --save
 > For more use-cases see the [tests](./test.js)
 
 ```js
-const isKindof = require('is-kindof')
-```
+var is = require('is-kindof')
 
-## API
+is.array([1, 2]) // => true
+is.boolean(true) // => true
+is.buffer(new Buffer('foo')) // => true
+is.date(new Date()) // => true
+is.error(new Error('foo')) // => true
+is.function(function noop () {}) // => true
+is.generator((function * gen () { yield 42 })()) // => true
+is.generatorfunction(function * genFn () {}) // => true
+is.map(new Map()) // => true
+is.null(null) // => true
+is.number(123) // => true
+is.object({ a: 'b' }) // => true
+is.promise(Promise.resolve(123)) // => true
+is.regexp(new RegExp('aa')) // => true
+is.set(new Set()) // => true
+is.stream(through2()) // => true
+is.string('fooo') // => true
+is.symbol(Symbol()) // => true
+is.undefined(undefined) // => true
+is.weakmap(new WeakMap()) // => true
+is.weakset(new WeakSet()) // => true
+```
 
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/tunnckoCore/is-kindof/issues/new).  
