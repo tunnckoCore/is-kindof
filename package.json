@@ -64,6 +64,27 @@
     "tasks": [
       "readme"
     ],
+    "related": {
+      "list": [
+        "kind-of",
+        "kind-of-extra",
+        "kind-of-types",
+        "is-async-function",
+        "is-function-equal",
+        "is-callback-function",
+        "to-callback",
+        "always-done",
+        "mukla",
+        "minibase"
+      ]
+    },
+    "reflinks": [
+      "async-done",
+      "base",
+      "common-callback-names",
+      "kind-of",
+      "rfpify"
+    ],
     "lint": {
       "reflinks": true
     }
