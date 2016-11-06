@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/tunnckocore/is-kindof/compare/v3.0.0...v3.0.1) (2016-11-06)
+
+
+### Bug Fixes
+
+* **package:** update description ([8917c62](https://github.com/tunnckocore/is-kindof/commit/8917c62))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/tunnckocore/is-kindof/compare/v2.1.1...v3.0.0) (2016-11-05)
 
