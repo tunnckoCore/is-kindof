@@ -74,8 +74,8 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [travis-url]: https://travis-ci.org/olstenlarck/is-kindof
 [travis-img]: https://img.shields.io/travis/olstenlarck/is-kindof/master.svg
 
-[coveralls-url]: https://coveralls.io/r/olstenlarck/is-kindof
-[coveralls-img]: https://img.shields.io/coveralls/olstenlarck/is-kindof.svg
+[coveralls-url]: https://coveralls.io/r/tunnckoCore/is-kindof
+[coveralls-img]: https://img.shields.io/coveralls/tunnckoCore/is-kindof.svg
 
 [david-url]: https://david-dm.org/tunnckoCore/is-kindof
 [david-img]: https://img.shields.io/david/tunnckoCore/is-kindof.svg
