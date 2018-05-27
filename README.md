@@ -1,8 +1,8 @@
-# [is-kindof][author-www-url] [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] [![npm downloads][downloads-img]][downloads-url] 
+# is-kindof [![npm version][npmv-img]][npmv-url] [![github release][github-release-img]][github-release-url] [![License][license-img]][license-url]
 
 > Check type of given javascript value. Support promises, generators, streams, and native types. Built on [kind-of][] lib.
 
-[![code climate][codeclimate-img]][codeclimate-url] [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url]
+ [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url] [![npm downloads][downloads-img]][downloads-url] 
 
 ## Install
 > Install with [npm](https://www.npmjs.com/)
@@ -65,23 +65,17 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [kind-of]: https://github.com/jonschlinkert/kind-of
 [rfpify]: https://github.com/samverschueren/rfpify
 
-[npmjs-url]: https://www.npmjs.com/package/is-kindof
-[npmjs-img]: https://img.shields.io/npm/v/is-kindof.svg?label=is-kindof
-
-[license-url]: https://github.com/tunnckoCore/is-kindof/blob/master/LICENSE
-[license-img]: https://img.shields.io/npm/l/is-kindof.svg
-
 [downloads-url]: https://www.npmjs.com/package/is-kindof
 [downloads-img]: https://img.shields.io/npm/dm/is-kindof.svg
 
 [codeclimate-url]: https://codeclimate.com/github/tunnckoCore/is-kindof
 [codeclimate-img]: https://img.shields.io/codeclimate/github/tunnckoCore/is-kindof.svg
 
-[travis-url]: https://travis-ci.org/tunnckoCore/is-kindof
-[travis-img]: https://img.shields.io/travis/tunnckoCore/is-kindof/master.svg
+[travis-url]: https://travis-ci.org/olstenlarck/is-kindof
+[travis-img]: https://img.shields.io/travis/olstenlarck/is-kindof/master.svg
 
-[coveralls-url]: https://coveralls.io/r/tunnckoCore/is-kindof
-[coveralls-img]: https://img.shields.io/coveralls/tunnckoCore/is-kindof.svg
+[coveralls-url]: https://coveralls.io/r/olstenlarck/is-kindof
+[coveralls-img]: https://img.shields.io/coveralls/olstenlarck/is-kindof.svg
 
 [david-url]: https://david-dm.org/tunnckoCore/is-kindof
 [david-img]: https://img.shields.io/david/tunnckoCore/is-kindof.svg
@@ -110,3 +104,13 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [new-message-url]: https://github.com/tunnckoCore/ama
 [new-message-img]: https://img.shields.io/badge/ask%20me-anything-green.svg
 
+<!-- -->
+
+[npmv-url]: https://www.npmjs.com/package/is-kindof
+[npmv-img]: https://img.shields.io/npm/v/is-kindof.svg?label=npm%20version
+
+[github-release-url]: https://github.com/olstenlarck/is-kindof/releases/latest
+[github-release-img]: https://img.shields.io/github/tag/olstenlarck/is-kindof.svg?label=github%20tag
+
+[license-url]: https://github.com/olstenlarck/is-kindof/blob/master/LICENSE
+[license-img]: https://img.shields.io/badge/license-MIT-blue.svg
